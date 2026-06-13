@@ -1,0 +1,13 @@
+services:
+  agentci:
+    build: .
+    image: agentci:local
+    ports:
+      - "3001:3001"
+    volumes:
+      - agentci-data:/app/data
+    environment:
+      - PORT=3001
+
+volumes:
+  agentci-data:
