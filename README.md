@@ -39,6 +39,24 @@ Each stage is simulated deterministically (seeded by the agent version's commit 
 - **Automatic rollback** — `POST /pipelines/:id/rollback` reverts a run and identifies the previously deployed version to restore
 - **Benchmark tracking** — `GET /benchmarks` returns historical eval scores per agent version
 
+## Framework
+
+AgentCI follows the SuperClaude Framework project structure:
+
+- [`PLANNING.md`](PLANNING.md) — architecture, module responsibilities, and design constraints (source of truth, kept in sync with `CLAUDE.md`)
+- [`TASK.md`](TASK.md) — priority-ordered task list
+- [`plugins/`](plugins/README.md) — reserved extension point for replacing `pseudoScore` simulation with real EvalOps/SentinelAI/test-runner integrations
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — development setup and contribution workflow
+
+See the portfolio-wide [`INTEGRATION.md`](../.planning/INTEGRATION.md) for how AgentCI relates to the other services in this workspace.
+
+## Getting Started
+
+```bash
+npm install
+npm run dev     # ts-node, no compile step — http://localhost:3001
+```
+
 ## Setup
 
 ```bash
@@ -73,6 +91,16 @@ The seed script registers three versions of `support-agent`:
 1. `1.2.0` — passes every gate, becomes the deployed production version
 2. `1.3.0-rc1` — fails the `eval_benchmarks` gate (low deterministic score)
 3. `1.3.0-rc2` — prompt contains a blocked phrase, fails `security_checks`
+
+## Architecture
+
+See [`PLANNING.md`](PLANNING.md) for the full architecture writeup (module
+responsibilities, deterministic gate logic, key design constraints) and
+[`CLAUDE.md`](CLAUDE.md) for the same content oriented at Claude Code sessions.
+
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for development setup and workflow.
 
 ## Future Work
 

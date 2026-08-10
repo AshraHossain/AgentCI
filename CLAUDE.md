@@ -80,3 +80,21 @@ README.md for known-good examples).
   can't infer the row type from a string table name.
 - **One pipeline run per `runPipeline` call** — runs are not resumable; a
   failed run must be re-triggered against a new (or corrected) agent version.
+
+## Framework conventions
+
+This project follows the SuperClaude Framework structure adopted across the
+portfolio:
+
+- **`PLANNING.md`** is the source-of-truth architecture doc — keep it in
+  sync with the Architecture section of this file when either changes.
+- **`TASK.md`** holds the priority-ordered task list; check it before
+  picking up new work.
+- **`plugins/`** is the reserved extension point for replacing the
+  `pseudoScore` simulation with real EvalOps/SentinelAI/test-runner
+  integrations — see `plugins/README.md`.
+- **`CONTRIBUTING.md`** documents the development setup (`npm install`,
+  `npm run dev`/`npm run build`) for contributors.
+- Cross-project relationships (ports, and any real integration points
+  between AgentCI and the other services in this workspace) are documented
+  in the portfolio-wide `../.planning/INTEGRATION.md`.
