@@ -80,3 +80,7 @@ The seed script registers three versions of `support-agent`:
 - Async/queued pipeline execution with live status streaming
 - Multi-stage canary with progressive traffic shifting
 - Persist deployed-version state per agent for true rollback execution
+
+## License
+
+Proprietary. See [LICENSE](LICENSE). All rights reserved.

@@ -216,4 +216,5 @@ export function rollbackRun(id: string): { run: PipelineRun; restoredVersionId: 
 
 export function listBenchmarks(agentVersionId?: string): BenchmarkRecord[] {
   const all = store.all<BenchmarkRecord>("benchmarks").sort((a, b) => b.createdAt.localeCompare(a.createdAt));
-  return agentVersio
+  return agentVersionId ? all.filter((b) => b.agentVersionId === agentVersionId) : all;
+}
