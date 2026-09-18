@@ -4,6 +4,7 @@
   "description": "Continuous Integration & Deployment for AI Agents",
   "main": "dist/index.js",
   "type": "commonjs",
+  "license": "UNLICENSED",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
